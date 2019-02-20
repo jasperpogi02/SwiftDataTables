@@ -157,6 +157,8 @@ public protocol SwiftDataTableDataSource: class {
     
     @objc optional func headerTitleFont(in dataTable: SwiftDataTable) -> UIFont
     
+    @objc optional func headerTitleColor(in dataTable: SwiftDataTable) -> UIColor
+    
     @objc optional func headerBackgroundColor(in dataTable: SwiftDataTable) -> UIColor
 }
 
@@ -470,7 +472,7 @@ public extension SwiftDataTable {
                 data: dataStructure.headerTitles[$0],
                 sortType: dataStructure.columnHeaderSortType(for: $0)
             )
-            headerViewModel.configure(dataTable: self, columnIndex: $0, font: self.headerTitleFont(), bgColor: self.headerBackgroundColor())
+            headerViewModel.configure(dataTable: self, columnIndex: $0, font: self.headerTitleFont(), fontColor: self.headerTitleColor(), bgColor: self.headerBackgroundColor())
             return headerViewModel
         }
         
@@ -815,6 +817,10 @@ extension SwiftDataTable {
     
     func headerTitleFont() -> UIFont {
         return self.delegate?.headerTitleFont?(in: self) ?? UIFont.systemFont(ofSize: 17.0)
+    }
+    
+    func headerTitleColor() -> UIColor {
+        return self.delegate?.headerTitleColor?(in: self) ?? UIColor.black
     }
     
     func headerBackgroundColor() -> UIColor {
