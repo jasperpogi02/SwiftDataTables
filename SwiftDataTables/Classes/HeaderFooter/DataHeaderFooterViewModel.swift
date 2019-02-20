@@ -17,6 +17,7 @@ public class DataHeaderFooterViewModel: DataTableSortable {
     var indexPath: IndexPath! // Questionable
     var dataTable: SwiftDataTable!
     var font: UIFont?
+    var bgColor: UIColor?
     
     public var sortType: DataTableSortType
     
@@ -56,10 +57,11 @@ public class DataHeaderFooterViewModel: DataTableSortable {
         self.sortType = sortType
     }
     
-    public func configure(dataTable: SwiftDataTable, columnIndex: Int, font: UIFont){
+    public func configure(dataTable: SwiftDataTable, columnIndex: Int, font: UIFont, bgColor: UIColor){
         self.dataTable = dataTable
         self.indexPath = IndexPath(index: columnIndex)
         self.font = font
+        self.bgColor = bgColor
     }
 }
 
