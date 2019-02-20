@@ -558,7 +558,7 @@ extension SwiftDataTable: UICollectionViewDataSource, UICollectionViewDelegate {
         case .paginationHeader:
             view.backgroundColor = UIColor.darkGray
         default:
-            view.backgroundColor = UIColor.white
+            view.backgroundColor = UIColor.headerTitleColor
         }
     }
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
