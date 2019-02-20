@@ -25,6 +25,7 @@ class DataHeaderFooter: UICollectionReusableView {
     }
     
     func setup(viewModel: DataHeaderFooterViewModel) {
+        self.titleLabel.font = viewModel.font
         self.titleLabel.text = viewModel.data
         self.sortingImageView.image = viewModel.imageForSortingElement
         self.backgroundColor = .white

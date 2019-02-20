@@ -154,6 +154,8 @@ public protocol SwiftDataTableDataSource: class {
     ///   - at: the row index to set the background color
     /// - Returns: the background colour to make the unhighlighted row
     @objc optional func dataTable(_ dataTable: SwiftDataTable, unhighlightedColorForRowIndex at: Int) -> UIColor
+    
+    @objc optional func headerTitleFont(in dataTable: SwiftDataTable) -> UIFont
 }
 
 extension SwiftDataTableDelegate {
@@ -466,7 +468,7 @@ public extension SwiftDataTable {
                 data: dataStructure.headerTitles[$0],
                 sortType: dataStructure.columnHeaderSortType(for: $0)
             )
-            headerViewModel.configure(dataTable: self, columnIndex: $0)
+            headerViewModel.configure(dataTable: self, columnIndex: $0, font: self.headerTitleFont())
             return headerViewModel
         }
         
@@ -807,6 +809,10 @@ extension SwiftDataTable {
     }
     func widthForRowHeader() -> CGFloat {
         return 0
+    }
+    
+    func headerTitleFont() -> UIFont {
+        return self.delegate?.headerTitleFont?(in: self) ?? UIFont.systemFont(ofSize: 17.0)
     }
     
     
