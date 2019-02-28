@@ -160,6 +160,8 @@ public protocol SwiftDataTableDataSource: class {
     @objc optional func headerTitleColor(in dataTable: SwiftDataTable) -> UIColor
     
     @objc optional func headerBackgroundColor(in dataTable: SwiftDataTable) -> UIColor
+    
+    @objc optional func shouldShowSortingImage(in dataTable: SwiftDataTable) -> Bool
 }
 
 extension SwiftDataTableDelegate {
@@ -827,6 +829,9 @@ extension SwiftDataTable {
         return self.delegate?.headerBackgroundColor?(in: self) ?? UIColor.white
     }
     
+    func shouldShowSortingImage() -> Bool {
+        return self.delegate?.shouldShowSortingImage?(in: self) ?? self.options.shouldShowSortingImage
+    }
     
     /// Automatically calcualtes the width the column should be based on the content
     /// in the rows under the column.

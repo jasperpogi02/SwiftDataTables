@@ -35,6 +35,8 @@ public struct DataTableConfiguration {
     public var shouldShowVerticalScrollBars: Bool = true
     public var shouldShowHorizontalScrollBars: Bool = false
     
+    public var shouldShowSortingImage: Bool = true
+    
     public var highlightedAlternatingRowColors = [
         UIColor(red: 0.941, green: 0.941, blue: 0.941, alpha: 1),
         UIColor(red: 0.9725, green: 0.9725, blue: 0.9725, alpha: 1)
