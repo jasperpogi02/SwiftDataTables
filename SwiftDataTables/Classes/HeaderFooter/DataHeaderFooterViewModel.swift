@@ -82,7 +82,6 @@ extension DataHeaderFooterViewModel: CollectionViewSupplementaryElementRepresent
             else {
                 return UICollectionReusableView()
         }
-        headerView.sortingImageView.isHidden = self.dataTable.shouldShowSortingImage()
         headerView.setup(viewModel: self)
         switch kind {
         case SwiftDataTable.SupplementaryViewType.columnHeader.rawValue:

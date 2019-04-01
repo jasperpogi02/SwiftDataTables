@@ -12,7 +12,6 @@ class DataHeaderFooter: UICollectionReusableView {
 
     //MARK: - Properties
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var sortingImageView: UIImageView!
 
     //MARK: - Events
     var didTapEvent: (() -> Void)? = nil
@@ -28,7 +27,6 @@ class DataHeaderFooter: UICollectionReusableView {
         self.titleLabel.font = viewModel.font
         self.titleLabel.textColor = viewModel.fontColor
         self.titleLabel.text = viewModel.data
-        self.sortingImageView.image = viewModel.imageForSortingElement
         self.backgroundColor = viewModel.bgColor
     }
     @objc func didTapView(){
